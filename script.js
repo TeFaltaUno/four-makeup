@@ -1,7 +1,7 @@
 /* Four Makeup · Taller de Automaquillaje (v2)
    Intro, logo 3D que sigue el dedo/mouse, títulos animados, carrusel de reels con videos,
    galería con filtros y visor, tarjetas que giran, cuenta regresiva y reserva por WhatsApp
-   con vista previa del mensaje.
+   con vista previa del mensaje, y música de fondo original (arranca con el primer toque).
    Seguridad: nada de innerHTML; los números de WhatsApp salen de una lista fija y los textos
    que escribe la persona se limpian y se codifican antes de ir al link. */
 (function () {
@@ -212,11 +212,98 @@
   rail.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
   requestAnimationFrame(railFx);
 
+  /* ── Música de fondo (tema original, loop sin cortes con Web Audio) ──
+     Los navegadores no permiten sonido sin un toque de la persona: arranca con el primer toque. */
+  var music = (function () {
+    var btn = $('music-btn'), txt = $('music-txt');
+    var SRC = 'media/four-theme.mp3?v=1', VOL = 0.32, LOOP_END = 38.4;
+    var ctx = null, gain = null, buffer = null, source = null, fallback = null;
+    var playing = false, ducked = false, loading = false;
+    var pref = 'on';
+    try { pref = localStorage.getItem('fm-music') || 'on'; } catch (e) {}
+    var save = function (v) { try { localStorage.setItem('fm-music', v); } catch (e) {} };
+    var ui = function () {
+      btn.classList.toggle('on', playing);
+      btn.classList.toggle('off', !playing && pref === 'off');
+      btn.setAttribute('aria-pressed', String(playing));
+      btn.setAttribute('aria-label', playing ? 'Pausar música' : 'Activar música');
+      txt.textContent = playing ? 'Música' : 'Tocá para música';
+    };
+    function useFallback() {
+      if (!fallback) { fallback = new Audio(SRC); fallback.loop = true; fallback.volume = VOL; }
+      var p = fallback.play(); if (p && p.catch) p.catch(function () { playing = false; ui(); });
+    }
+    function fadeTo(v, secs) {
+      if (!gain) return;
+      var t = ctx.currentTime;
+      gain.gain.cancelScheduledValues(t);
+      gain.gain.setValueAtTime(gain.gain.value, t);
+      gain.gain.linearRampToValueAtTime(v, t + secs);
+    }
+    function start() {
+      if (playing || loading) return;
+      playing = true; ui();
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC || !window.fetch) { useFallback(); return; }
+      if (!ctx) { ctx = new AC(); gain = ctx.createGain(); gain.gain.value = 0; gain.connect(ctx.destination); }
+      if (ctx.state === 'suspended') ctx.resume();
+      if (buffer) { begin(); return; }
+      loading = true;
+      fetch(SRC).then(function (r) { if (!r.ok) throw new Error('audio'); return r.arrayBuffer(); })
+        .then(function (data) { return new Promise(function (ok, ko) { ctx.decodeAudioData(data, ok, ko); }); })
+        .then(function (buf) { buffer = buf; loading = false; if (playing) begin(); })
+        .catch(function () { loading = false; useFallback(); });
+    }
+    function begin() {
+      if (!source) {
+        source = ctx.createBufferSource();
+        source.buffer = buffer; source.loop = true;
+        source.loopStart = 0; source.loopEnd = Math.min(LOOP_END, buffer.duration);
+        source.connect(gain); source.start();
+      }
+      if (ctx.state === 'suspended') ctx.resume();
+      fadeTo(ducked ? 0 : VOL, 2.5);
+    }
+    function stop() {
+      playing = false; ui();
+      if (fallback) fallback.pause();
+      if (ctx) { fadeTo(0, 0.5); setTimeout(function () { if (!playing && ctx) ctx.suspend(); }, 600); }
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (playing) { pref = 'off'; save('off'); stop(); } else { pref = 'on'; save('on'); start(); }
+    });
+    // primer toque en cualquier lado
+    var first = function (e) {
+      if (e.target && e.target.closest && e.target.closest('#music-btn')) return;
+      doc.removeEventListener('pointerdown', first, true);
+      doc.removeEventListener('keydown', first, true);
+      if (pref !== 'off') start();
+    };
+    doc.addEventListener('pointerdown', first, true);
+    doc.addEventListener('keydown', first, true);
+    doc.addEventListener('visibilitychange', function () {
+      if (!playing) return;
+      if (doc.hidden) { if (ctx) ctx.suspend(); if (fallback) fallback.pause(); }
+      else if (!ducked) { if (ctx) ctx.resume(); if (fallback) fallback.play(); }
+    });
+    ui();
+    return {
+      duck: function (on) {
+        ducked = on;
+        if (!playing) return;
+        if (fallback) { if (on) fallback.pause(); else fallback.play(); }
+        if (ctx) fadeTo(on ? 0 : VOL, on ? 0.3 : 1.5);
+      }
+    };
+  })();
+
   /* ── Reproductor con sonido ── */
   var player = $('player'), plVideo = $('pl-video'), plCap = $('pl-cap'), lastFocus = null;
   function openPlayer(r) {
     lastFocus = doc.activeElement;
     reelEls.forEach(function (o) { o.video.pause(); });
+    music.duck(true);
     plVideo.setAttribute('src', 'media/reel-' + r.id + '.mp4');
     plVideo.setAttribute('poster', 'media/' + r.poster + '.webp');
     plCap.textContent = r.title + ' · ' + (DATA.names[r.by] || '');
@@ -227,6 +314,7 @@
   function closePlayer() {
     plVideo.pause(); plVideo.removeAttribute('src'); plVideo.load();
     player.hidden = true; root.style.overflow = '';
+    music.duck(false);
     if (lastFocus) lastFocus.focus();
     setActiveReel(activeReel);
   }

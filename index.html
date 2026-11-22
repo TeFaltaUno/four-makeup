@@ -22,11 +22,11 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="only light">
 <meta name="theme-color" content="#140f0e">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; connect-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preload" href="fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -350,6 +350,12 @@
   <p class="foot-small">San Miguel de Tucumán · Yerba Buena</p>
 </footer>
 
+<!-- Música (tema original) -->
+<button class="music" type="button" id="music-btn" aria-pressed="false" aria-label="Activar música">
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="music-txt" id="music-txt">Tocá para música</span>
+</button>
+
 <!-- WhatsApp flotante -->
 <div class="fab" id="fab">
   <button class="fab-btn" type="button" id="fab-btn" aria-expanded="false" aria-controls="fab-menu" aria-label="Escribir por WhatsApp">
@@ -378,6 +384,6 @@
 </div>
 
 <script src="data.js?v=3"></script>
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
