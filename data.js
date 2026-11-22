@@ -8,7 +8,6 @@ window.FOUR_DATA = Object.freeze({
     { id: 'De8S7NpvLLt', by: 'augusto', title: 'Makeup para eventos',      poster: 'au_De8S7NpvLLt' },
     { id: 'DgBq0KTBEBW', by: 'sofia',   title: 'Automaquillaje',           poster: 'sj_DgBq0KTBEBW' },
     { id: 'Dc2UqcAPgio', by: 'augusto', title: 'Makeup artístico',         poster: 'au_Dc2UqcAPgio' },
-    { id: 'DfD5wOKyvPT', by: 'sofia',   title: 'Makeup social',            poster: 'sj_DfD5wOKyvPT' },
     { id: 'De8Pi4yv1yG', by: 'augusto', title: 'Detrás de escena',         poster: 'au_De8Pi4yv1yG' },
     { id: 'Dc4v5aTyZlM', by: 'sofia',   title: 'Makeup artístico',         poster: 'sj_Dc4v5aTyZlM' }
   ],
