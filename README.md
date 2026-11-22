@@ -19,7 +19,3 @@ Página estática (HTML/CSS/JS sin dependencias, con CSP estricta y fuentes prop
 - Números de WhatsApp: botones en `index.html` y la lista `WA` en `script.js`.
 - Fechas: `data-start` en `index.html` (tarjetas y opciones del formulario). Las fechas pasadas se marcan solas.
 - Después de editar, subí el `?v=` de `style.css`, `data.js` y `script.js` en `index.html`.
-
-## Música
-- `media/four-pop.mp3` es un tema original (pop ambiental, 108 BPM, 16 compases en loop), generado con `tools/four_pop.py`.
-- Arranca con el primer toque en la página (los navegadores no dejan que suene sola) y se pausa con el botón de abajo a la izquierda. Se baja sola cuando se abre un reel con sonido.
