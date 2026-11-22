@@ -2,177 +2,382 @@
 <html lang="es" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="utf-8">
-<title>Taller de Automaquillaje · Four Makeup</title>
-<meta name="description" content="Aprendé a maquillarte con Four Makeup (Sofía Jiménez y Augusto Valenzuela). Taller de automaquillaje con productos incluidos y merienda en Valmass Café de Especialidad, Balcarce 510, San Miguel de Tucumán. Cupos limitados.">
+<title>Four Makeup · Taller de Automaquillaje · Tucumán</title>
+<meta name="description" content="Four Makeup: Sofía Jiménez y Augusto Valenzuela, maquilladores profesionales de San Miguel de Tucumán. Taller de automaquillaje con productos y merienda incluidos en Valmass Café (Balcarce 510). Makeup para novias, egresadas, quinceañeras y eventos.">
 <meta property="og:title" content="Taller de Automaquillaje · Four Makeup">
 <meta property="og:description" content="Aprendé a maquillarte sola. Miércoles 25/11 17 hs o sábado 28/11 10 hs · Productos y merienda incluidos · Cupos limitados.">
 <meta property="og:image" content="https://tefaltauno.github.io/four-makeup/og-four-makeup.jpg">
 <meta property="og:image:secure_url" content="https://tefaltauno.github.io/four-makeup/og-four-makeup.jpg">
-<meta property="og:url" content="https://tefaltauno.github.io/four-makeup/">
-<meta name="twitter:image" content="https://tefaltauno.github.io/four-makeup/og-four-makeup.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Four Makeup · Taller de Automaquillaje">
+<meta property="og:url" content="https://tefaltauno.github.io/four-makeup/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Four Makeup">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tefaltauno.github.io/four-makeup/og-four-makeup.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="only light">
-<meta name="theme-color" content="#f4f1eb">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; img-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#140f0e">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="icon" href="favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="preload" href="fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
+
+<!-- Intro: las letras de FOUR se arman -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-word"><span>F</span><span>O</span><span>U</span><span>R</span></div>
+  <p class="intro-sub">makeup</p>
+</div>
+
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+<!-- Barra superior -->
+<header class="topbar" id="topbar">
+  <a class="tb-logo" href="#inicio" aria-label="Four Makeup, ir al inicio"><img src="logo-four-mask.png" alt="" width="1282" height="386"></a>
+  <nav class="tb-nav" aria-label="Secciones">
+    <a href="#taller">Taller</a>
+    <a href="#reels">Reels</a>
+    <a href="#trabajos">Trabajos</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#preguntas">Preguntas</a>
+  </nav>
+  <a class="tb-cta" href="#reservar">Reservar</a>
+</header>
+
 <main>
 
-  <!-- Portada -->
-  <header class="hero">
-    <img class="logo" src="logo-four-makeup.png" alt="Four Makeup" width="669" height="344">
-    <p class="eyebrow reveal">Taller de</p>
-    <h1 class="reveal">Automaquillaje</h1>
-    <span class="rule reveal" aria-hidden="true"></span>
-    <p class="lead reveal">Aprendé a maquillarte sola y a resaltar tu belleza, con la guía de dos maquilladores profesionales y un café de especialidad de por medio.</p>
-    <p class="badge reveal">Cupos limitados</p>
-    <a class="btn btn-dark reveal" href="#reservar">Quiero mi lugar</a>
-  </header>
+  <!-- 1 · Portada con video y logo 3D -->
+  <section class="hero" id="inicio">
+    <video class="hero-video" id="hero-video" src="media/hero-loop.mp4" poster="media/hero-poster.jpg" muted loop playsinline autoplay preload="auto"></video>
+    <div class="hero-shade"></div>
+    <div class="hero-glow" aria-hidden="true"><span></span><span></span><span></span></div>
 
-  <!-- Fechas -->
-  <section class="block reveal" aria-labelledby="fechas-t">
-    <p class="eyebrow">Dos fechas habilitadas</p>
-    <h2 id="fechas-t">Elegí tu <em>día.</em></h2>
-    <div class="dates">
-      <div class="date" data-start="2026-11-25T17:00:00-03:00">
-        <span class="date-day">Miércoles</span>
-        <span class="date-num">25</span>
-        <span class="date-month">de noviembre</span>
-        <span class="date-time">17:00 hs</span>
-        <span class="date-done" hidden>Finalizado</span>
+    <div class="floaters" aria-hidden="true">
+      <span class="fl fl1">Novias</span>
+      <span class="fl fl2">Egresadas</span>
+      <span class="fl fl3">Quinceañeras</span>
+      <span class="fl fl4">Eventos</span>
+      <span class="fl fl5">Color &amp; peinado</span>
+      <span class="fl fl6">Automaquillaje</span>
+    </div>
+
+    <div class="hero-inner">
+      <p class="kicker"><span class="dot"></span>Tucumán · Yerba Buena</p>
+
+      <div class="logo3d" id="logo3d" role="img" aria-label="Four Makeup">
+        <div class="l3-stage">
+          <span class="l3-layer"></span><span class="l3-layer"></span><span class="l3-layer"></span><span class="l3-layer"></span>
+          <span class="l3-layer"></span><span class="l3-layer"></span><span class="l3-layer"></span><span class="l3-layer"></span>
+          <span class="l3-face"></span>
+          <span class="l3-shine"></span>
+        </div>
       </div>
-      <div class="date" data-start="2026-11-28T10:00:00-03:00">
-        <span class="date-day">Sábado</span>
-        <span class="date-num">28</span>
-        <span class="date-month">de noviembre</span>
-        <span class="date-time">10:00 hs</span>
-        <span class="date-done" hidden>Finalizado</span>
+      <p class="l3-sub">M A K E U P</p>
+
+      <h1 class="hero-title">
+        <span class="ht-small">Taller de</span>
+        <span class="ht-big">Automaquillaje</span>
+      </h1>
+      <p class="hero-lead">Aprendé a maquillarte sola y a resaltar tu belleza, con la guía de dos maquilladores profesionales y un café de especialidad de por medio.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-glow" href="#reservar">Reservar mi lugar</a>
+        <a class="btn btn-glass" href="#reels">Ver reels</a>
+      </div>
+      <p class="hero-dates"><b>Miér 25/11</b> · 17 hs <i>✦</i> <b>Sáb 28/11</b> · 10 hs <i>✦</i> Cupos limitados</p>
+    </div>
+    <a class="scroll-hint" href="#taller" aria-label="Bajar"><span></span></a>
+  </section>
+
+  <!-- 2 · Franja en movimiento -->
+  <div class="band" aria-hidden="true">
+    <div class="band-track" id="band">
+      <span>Automaquillaje</span><i>✦</i><span>Makeup profesional</span><i>✦</i><span>Novias</span><i>✦</i><span>Egresadas</span><i>✦</i><span>Quinceañeras</span><i>✦</i><span>Eventos</span><i>✦</i><span>Color &amp; peinado</span><i>✦</i>
+      <span>Automaquillaje</span><i>✦</i><span>Makeup profesional</span><i>✦</i><span>Novias</span><i>✦</i><span>Egresadas</span><i>✦</i><span>Quinceañeras</span><i>✦</i><span>Eventos</span><i>✦</i><span>Color &amp; peinado</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- 3 · El taller -->
+  <section class="taller" id="taller">
+    <div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+    <span class="ghost-letters" aria-hidden="true">FOUR</span>
+    <div class="wrap">
+      <p class="eyebrow reveal">El taller</p>
+      <h2 class="split">Aprendé a maquillarte <em>sola.</em></h2>
+      <p class="lead reveal">Una master class práctica: te maquillás vos, con nuestra orientación paso a paso según tu rostro y tu estilo, mientras disfrutás de un café de especialidad.</p>
+
+      <div class="count reveal" id="count" aria-live="polite">
+        <p class="count-label" id="count-label">Próxima fecha en</p>
+        <div class="count-grid">
+          <div><b id="cd-d">--</b><span>días</span></div>
+          <div><b id="cd-h">--</b><span>horas</span></div>
+          <div><b id="cd-m">--</b><span>min</span></div>
+          <div><b id="cd-s">--</b><span>seg</span></div>
+        </div>
+      </div>
+
+      <div class="dates">
+        <article class="date tilt reveal" data-start="2026-11-25T17:00:00-03:00">
+          <div class="date-in">
+            <span class="date-day">Miércoles</span>
+            <span class="date-num">25</span>
+            <span class="date-month">de noviembre</span>
+            <span class="date-time">17:00 hs</span>
+            <span class="date-done" hidden>Finalizado</span>
+            <a class="date-btn" href="#reservar" data-pick="0">Elegir esta fecha</a>
+          </div>
+        </article>
+        <article class="date tilt reveal" data-start="2026-11-28T10:00:00-03:00">
+          <div class="date-in">
+            <span class="date-day">Sábado</span>
+            <span class="date-num">28</span>
+            <span class="date-month">de noviembre</span>
+            <span class="date-time">10:00 hs</span>
+            <span class="date-done" hidden>Finalizado</span>
+            <a class="date-btn" href="#reservar" data-pick="1">Elegir esta fecha</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="bento">
+        <div class="bx bx-a reveal">
+          <span class="bx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 21h10v-2H7v2Zm1-4h8l1-9h-3V3h-4v5H7l1 9Z"/></svg></span>
+          <h3>Productos incluidos</h3>
+          <p>Todos los elementos y materiales para la práctica. No tenés que llevar nada.</p>
+        </div>
+        <div class="bx bx-b reveal">
+          <span class="bx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h14v2H4v-2Zm14-9h1a3 3 0 0 1 0 6h-1.3A6 6 0 0 1 12 19H8a6 6 0 0 1-6-6V8h16v2Zm0 2v2h1a1 1 0 0 0 0-2h-1ZM8 2h2c0 1.5-1.5 2-1.5 3.5S10 7 10 7H8s-1.5-.5-1.5-1.5S8 3.5 8 2Zm4 0h2c0 1.5-1.5 2-1.5 3.5S14 7 14 7h-2s-1.5-.5-1.5-1.5S12 3.5 12 2Z"/></svg></span>
+          <h3>Merienda incluida</h3>
+          <p>De Valmass Café de Especialidad, mientras aprendés.</p>
+        </div>
+        <div class="bx bx-c reveal">
+          <span class="bx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 12c5 0 9 2.2 9 5v3H3v-3c0-2.8 4-5 9-5Z"/></svg></span>
+          <h3>Personalizado</h3>
+          <p>Según tu rostro, tu piel y tu estilo.</p>
+        </div>
+        <div class="bx bx-d reveal">
+          <span class="bx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-2.7 0-8 1.3-8 4v2h10v-2c0-1 .4-2 1.1-2.7A12 12 0 0 0 8 13Zm8 0c-.3 0-.7 0-1.1.1 1.2.8 2.1 2 2.1 3.9v2h7v-2c0-2.7-5.3-4-8-4Z"/></svg></span>
+          <h3>Cupos limitados</h3>
+          <p>Grupo reducido para que tengas atención y tiempo de práctica.</p>
+        </div>
+        <blockquote class="bx bx-q reveal">
+          <p>“Te vamos a orientar a cómo maquillarte y resaltar tu belleza mientras disfrutás de café de especialidad.”</p>
+          <cite>Augusto Valenzuela</cite>
+        </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- Qué incluye -->
-  <section class="block reveal" aria-labelledby="incluye-t">
-    <p class="eyebrow">La experiencia</p>
-    <h2 id="incluye-t">Qué <em>incluye.</em></h2>
-    <ul class="features">
-      <li>
-        <span class="f-n">01</span>
-        <h3>Productos y materiales</h3>
-        <p>Todos los elementos y materiales necesarios para la práctica. No tenés que llevar nada.</p>
-      </li>
-      <li>
-        <span class="f-n">02</span>
-        <h3>Clase práctica y personalizada</h3>
-        <p>Te maquillás vos, con nuestra orientación paso a paso, según tu rostro y tu estilo.</p>
-      </li>
-      <li>
-        <span class="f-n">03</span>
-        <h3>Merienda incluida</h3>
-        <p>Una merienda de Valmass Café de Especialidad mientras aprendés.</p>
-      </li>
-      <li>
-        <span class="f-n">04</span>
-        <h3>Grupo reducido</h3>
-        <p>Cupos limitados para que cada una tenga atención y tiempo de práctica.</p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Quiénes dictan -->
-  <section class="block reveal" aria-labelledby="dictan-t">
-    <p class="eyebrow">Dictado por</p>
-    <h2 id="dictan-t">Four <em>Makeup.</em></h2>
-    <p class="intro">Somos Sofía y Augusto, maquilladores profesionales de San Miguel de Tucumán. Hacemos makeup para novias, egresadas, quinceañeras y eventos, y dictamos cursos de automaquillaje.</p>
-    <div class="people">
-      <article class="person">
-        <p class="p-name">Augusto Valenzuela</p>
-        <p class="p-role">Novias · Egresadas · Quinceañeras · Eventos · Color y peinado</p>
-        <div class="p-links">
-          <a class="btn btn-wa" data-wa="5493815560088" href="https://wa.me/5493815560088" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
-            WhatsApp · 381 556-0088
-          </a>
-          <a class="link" href="https://www.instagram.com/makeup.by.augusto/" target="_blank" rel="noopener noreferrer">@makeup.by.augusto</a>
-        </div>
-      </article>
-      <article class="person">
-        <p class="p-name">Sofía Jiménez</p>
-        <p class="p-role">Maquilladora profesional · Eventos</p>
-        <div class="p-links">
-          <a class="btn btn-wa" data-wa="5493815159941" href="https://wa.me/5493815159941" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
-            WhatsApp · 381 515-9941
-          </a>
-          <a class="link" href="https://www.instagram.com/sj.makeup.beauty/" target="_blank" rel="noopener noreferrer">@sj.makeup.beauty</a>
-        </div>
-      </article>
+  <!-- 4 · Reels -->
+  <section class="reels" id="reels">
+    <div class="wrap">
+      <p class="eyebrow reveal">Reels</p>
+      <h2 class="split light">Mirá cómo <em>trabajamos.</em></h2>
+      <p class="lead light reveal">Tocá un video para verlo con sonido.</p>
+    </div>
+    <div class="reel-rail" id="reel-rail" tabindex="0" aria-label="Carrusel de reels"></div>
+    <div class="rail-ctrl">
+      <button class="round" type="button" id="reel-prev" aria-label="Reel anterior">←</button>
+      <div class="rail-dots" id="reel-dots" aria-hidden="true"></div>
+      <button class="round" type="button" id="reel-next" aria-label="Reel siguiente">→</button>
     </div>
   </section>
 
-  <!-- Reservar -->
-  <section class="block reserve reveal" id="reservar" aria-labelledby="reservar-t">
-    <p class="eyebrow">Inscripción</p>
-    <h2 id="reservar-t">Reservá tu <em>lugar.</em></h2>
-    <form class="reserve-card" id="reserve-form" novalidate>
-      <label class="field">
-        <span class="label">Tu nombre</span>
-        <input type="text" id="r-name" name="nombre" maxlength="50" autocomplete="given-name" placeholder="Ej: Sofía">
-      </label>
-      <fieldset class="field">
-        <legend class="label">¿Qué fecha te queda mejor?</legend>
-        <div class="chips">
-          <label class="chip"><input type="radio" name="fecha" value="Miércoles 25/11 a las 17 hs" data-start="2026-11-25T17:00:00-03:00" checked><span>Miér 25/11 · 17 hs</span></label>
-          <label class="chip"><input type="radio" name="fecha" value="Sábado 28/11 a las 10 hs" data-start="2026-11-28T10:00:00-03:00"><span>Sáb 28/11 · 10 hs</span></label>
-          <label class="chip"><input type="radio" name="fecha" value=""><span>Quiero más info</span></label>
-        </div>
-      </fieldset>
-      <p class="label send-label">Escribile a</p>
-      <div class="send">
-        <button class="btn btn-wa" type="submit" data-to="5493815560088">Augusto</button>
-        <button class="btn btn-wa" type="submit" data-to="5493815159941">Sofía</button>
+  <!-- 5 · Trabajos -->
+  <section class="works" id="trabajos">
+    <div class="strip" aria-hidden="true">
+      <div class="strip-row" id="strip-a"></div>
+      <div class="strip-row rev" id="strip-b"></div>
+    </div>
+    <div class="wrap">
+      <p class="eyebrow reveal">Portfolio</p>
+      <h2 class="split">Trabajos <em>reales.</em></h2>
+      <div class="filters reveal" role="group" aria-label="Filtrar trabajos">
+        <button class="chip on" type="button" data-filter="all">Todos</button>
+        <button class="chip" type="button" data-filter="sofia">Sofía</button>
+        <button class="chip" type="button" data-filter="augusto">Augusto</button>
+        <button class="chip" type="button" data-filter="social">Social &amp; eventos</button>
+        <button class="chip" type="button" data-filter="artistico">Artístico</button>
       </div>
-      <p class="note">Se abre WhatsApp con tu mensaje listo para enviar.</p>
-    </form>
+      <div class="gallery" id="gallery"></div>
+    </div>
   </section>
 
-  <!-- Lugar -->
-  <section class="block place reveal" aria-labelledby="lugar-t">
-    <p class="eyebrow">Lugar</p>
-    <h2 id="lugar-t">Valmass <em>Café.</em></h2>
-    <img class="place-logo" src="logo-valmass.png" alt="Valmass Café de Especialidad" width="452" height="244" decoding="async">
-    <p class="place-addr">Balcarce 510 · San Miguel de Tucumán</p>
-    <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Balcarce+510%2C+San+Miguel+de+Tucum%C3%A1n" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+  <!-- 6 · Equipo -->
+  <section class="team" id="equipo">
+    <div class="mesh dark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap">
+      <p class="eyebrow reveal">Dictado por</p>
+      <h2 class="split light">Somos <em>Four Makeup.</em></h2>
+      <p class="lead light reveal">Sofía y Augusto, maquilladores profesionales de San Miguel de Tucumán. Makeup para novias, egresadas, quinceañeras y eventos, y cursos de automaquillaje.</p>
+
+      <div class="people">
+        <article class="person flip reveal" tabindex="0" aria-label="Sofía Jiménez. Tocá para ver contacto">
+          <div class="flip-in">
+            <div class="face front">
+              <img class="p-photo" src="media/sj_DaeOoHmSbGZ.webp" alt="Sofía Jiménez maquillando" width="480" height="640" loading="lazy">
+              <div class="p-over">
+                <img class="p-badge" src="media/sj_pic.webp" alt="" width="150" height="150" loading="lazy">
+                <p class="p-name">Sofía <em>Jiménez</em></p>
+                <p class="p-role">Maquilladora profesional · Eventos</p>
+                <span class="p-hint">Tocá para ver contacto ↻</span>
+              </div>
+            </div>
+            <div class="face back">
+              <p class="p-name">Sofía <em>Jiménez</em></p>
+              <ul class="p-list"><li>Maquillaje profesional</li><li>Eventos y social</li><li>Taller de automaquillaje</li></ul>
+              <a class="btn btn-wa" data-wa="5493815159941" href="https://wa.me/5493815159941" target="_blank" rel="noopener noreferrer">WhatsApp · 381 515-9941</a>
+              <a class="ig" href="https://www.instagram.com/sj.makeup.beauty/" target="_blank" rel="noopener noreferrer">@sj.makeup.beauty</a>
+            </div>
+          </div>
+        </article>
+        <article class="person flip reveal" tabindex="0" aria-label="Augusto Valenzuela. Tocá para ver contacto">
+          <div class="flip-in">
+            <div class="face front">
+              <img class="p-photo" src="media/au_De8S7NpvLLt.webp" alt="Makeup de Augusto Valenzuela" width="361" height="640" loading="lazy">
+              <div class="p-over">
+                <img class="p-badge" src="media/au_pic.webp" alt="" width="150" height="150" loading="lazy">
+                <p class="p-name">Augusto <em>Valenzuela</em></p>
+                <p class="p-role">Novias · Egresadas · Quinceañeras · Eventos</p>
+                <span class="p-hint">Tocá para ver contacto ↻</span>
+              </div>
+            </div>
+            <div class="face back">
+              <p class="p-name">Augusto <em>Valenzuela</em></p>
+              <ul class="p-list"><li>Novias, egresadas y quinceañeras</li><li>Eventos</li><li>Color y peinado</li></ul>
+              <a class="btn btn-wa" data-wa="5493815560088" href="https://wa.me/5493815560088" target="_blank" rel="noopener noreferrer">WhatsApp · 381 556-0088</a>
+              <a class="ig" href="https://www.instagram.com/makeup.by.augusto/" target="_blank" rel="noopener noreferrer">@makeup.by.augusto</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <!-- Makeup profesional -->
-  <section class="block pro reveal" aria-labelledby="pro-t">
-    <p class="eyebrow">También</p>
-    <h2 id="pro-t">Makeup <em>profesional.</em></h2>
-    <p class="intro">Maquillaje y peinado para novias, egresadas, quinceañeras y eventos. Consultanos por WhatsApp para reservar tu fecha.</p>
+  <!-- 7 · Reservar -->
+  <section class="reserve" id="reservar">
+    <div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap">
+      <p class="eyebrow reveal">Inscripción</p>
+      <h2 class="split">Reservá tu <em>lugar.</em></h2>
+
+      <div class="reserve-grid">
+        <form class="r-card reveal" id="reserve-form" novalidate>
+          <label class="field">
+            <span class="label">Tu nombre</span>
+            <input type="text" id="r-name" name="nombre" maxlength="50" autocomplete="given-name" placeholder="Ej: Sofía">
+          </label>
+          <fieldset class="field">
+            <legend class="label">¿Qué fecha te queda mejor?</legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="fecha" value="Miércoles 25/11 a las 17 hs" data-start="2026-11-25T17:00:00-03:00" checked><span>Miér 25/11 · 17 hs</span></label>
+              <label class="pill"><input type="radio" name="fecha" value="Sábado 28/11 a las 10 hs" data-start="2026-11-28T10:00:00-03:00"><span>Sáb 28/11 · 10 hs</span></label>
+              <label class="pill"><input type="radio" name="fecha" value=""><span>Quiero más info</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="field">
+            <legend class="label">¿Cuántas personas?</legend>
+            <div class="stepper">
+              <button type="button" class="round sm" id="r-minus" aria-label="Una persona menos">−</button>
+              <output id="r-count" aria-live="polite">1</output>
+              <button type="button" class="round sm" id="r-plus" aria-label="Una persona más">+</button>
+            </div>
+          </fieldset>
+          <p class="label">Escribile a</p>
+          <div class="send">
+            <button class="btn btn-wa" type="submit" data-to="5493815560088">Augusto</button>
+            <button class="btn btn-wa" type="submit" data-to="5493815159941">Sofía</button>
+          </div>
+        </form>
+
+        <div class="phone reveal" aria-hidden="true">
+          <div class="ph-top"><img src="logo-four-mask.png" alt="" width="1282" height="386"><span id="ph-to">Augusto · Four Makeup</span></div>
+          <div class="ph-chat">
+            <p class="bubble" id="ph-msg"></p>
+          </div>
+          <p class="ph-note">Así va a llegar tu mensaje</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="foot">
-    <img src="logo-four-makeup.png" alt="" width="669" height="344" loading="lazy">
-    <a class="link" href="https://www.instagram.com/four_makeup4/" target="_blank" rel="noopener noreferrer">@four_makeup4</a>
-    <p class="small">San Miguel de Tucumán · Yerba Buena</p>
-  </footer>
+  <!-- 8 · Lugar -->
+  <section class="place" id="lugar">
+    <div class="wrap place-grid">
+      <div class="reveal">
+        <p class="eyebrow">Lugar</p>
+        <h2 class="split">Valmass <em>Café.</em></h2>
+        <p class="place-addr">Balcarce 510 · San Miguel de Tucumán</p>
+        <p class="lead">El taller se hace en Valmass Café de Especialidad, con la merienda incluida.</p>
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Balcarce+510%2C+San+Miguel+de+Tucum%C3%A1n" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a>
+      </div>
+      <div class="place-card tilt reveal">
+        <img src="logo-valmass.png" alt="Valmass Café de Especialidad" width="452" height="244" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · Preguntas -->
+  <section class="faq" id="preguntas">
+    <div class="wrap">
+      <p class="eyebrow reveal">Preguntas</p>
+      <h2 class="split">Lo que más nos <em>preguntan.</em></h2>
+      <div class="acc">
+        <details class="reveal"><summary>¿Tengo que llevar maquillaje?</summary><p>No. El taller incluye todos los elementos y materiales necesarios para la práctica.</p></details>
+        <details class="reveal"><summary>¿Necesito saber maquillarme?</summary><p>No. El taller está pensado para que aprendas a maquillarte sola, con nuestra orientación según tu rostro y tu estilo.</p></details>
+        <details class="reveal"><summary>¿Dónde es y qué incluye?</summary><p>En Valmass Café de Especialidad, Balcarce 510. Incluye los productos para la práctica y la merienda.</p></details>
+        <details class="reveal"><summary>¿Cuánto cuesta y cómo reservo?</summary><p>Escribinos por WhatsApp a Augusto o a Sofía y te pasamos el valor. Los cupos son limitados, así que conviene reservar con tiempo.</p></details>
+        <details class="reveal"><summary>¿También maquillan para eventos?</summary><p>Sí. Hacemos makeup para novias, egresadas, quinceañeras y eventos, y también color y peinado.</p></details>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<script src="script.js?v=1"></script>
+<footer class="foot">
+  <div class="foot-logo"><img src="logo-four-mask.png" alt="Four Makeup" width="1282" height="386" loading="lazy"><span>M A K E U P</span></div>
+  <div class="foot-ig">
+    <a href="https://www.instagram.com/four_makeup4/" target="_blank" rel="noopener noreferrer">@four_makeup4</a>
+    <a href="https://www.instagram.com/sj.makeup.beauty/" target="_blank" rel="noopener noreferrer">@sj.makeup.beauty</a>
+    <a href="https://www.instagram.com/makeup.by.augusto/" target="_blank" rel="noopener noreferrer">@makeup.by.augusto</a>
+  </div>
+  <p class="foot-small">San Miguel de Tucumán · Yerba Buena</p>
+</footer>
+
+<!-- WhatsApp flotante -->
+<div class="fab" id="fab">
+  <button class="fab-btn" type="button" id="fab-btn" aria-expanded="false" aria-controls="fab-menu" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+  </button>
+  <div class="fab-menu" id="fab-menu" hidden>
+    <p>¿Con quién querés hablar?</p>
+    <a data-wa="5493815560088" href="https://wa.me/5493815560088" target="_blank" rel="noopener noreferrer"><img src="media/au_pic.webp" alt="" width="150" height="150">Augusto Valenzuela</a>
+    <a data-wa="5493815159941" href="https://wa.me/5493815159941" target="_blank" rel="noopener noreferrer"><img src="media/sj_pic.webp" alt="" width="150" height="150">Sofía Jiménez</a>
+  </div>
+</div>
+
+<!-- Visor de fotos -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button class="lb-close round" type="button" id="lb-close" aria-label="Cerrar">✕</button>
+  <button class="lb-nav prev round" type="button" id="lb-prev" aria-label="Foto anterior">←</button>
+  <figure><img id="lb-img" src="logo-four-mask.png" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-nav next round" type="button" id="lb-next" aria-label="Foto siguiente">→</button>
+</div>
+
+<!-- Reproductor de reels -->
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Reel" hidden>
+  <button class="lb-close round" type="button" id="pl-close" aria-label="Cerrar">✕</button>
+  <video id="pl-video" controls playsinline preload="none"></video>
+  <p class="pl-cap" id="pl-cap"></p>
+</div>
+
+<script src="data.js?v=2"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>

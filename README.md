@@ -2,12 +2,20 @@
 
 Link para WhatsApp: https://tefaltauno.github.io/four-makeup/
 
-- `index.html`, `style.css`, `script.js` — página (HTML/CSS/JS sin dependencias, con CSP).
-- `logo-four-makeup.png` — logo FOUR MAKEUP con fondo transparente.
-- `og-four-makeup.jpg` — imagen que aparece al compartir el link por WhatsApp.
-- `logo-valmass.png` — logo del lugar (Valmass Café de Especialidad, Balcarce 510).
+Página estática (HTML/CSS/JS sin dependencias, con CSP estricta y fuentes propias).
 
-Contactos (WhatsApp): Augusto Valenzuela 381 556-0088 · Sofía Jiménez 381 515-9941.
-Para cambiar números: `index.html` (botones) y la lista `ALLOWED` en `script.js`.
-Las fechas que ya pasaron se marcan solas como "Finalizado".
-Después de editar, subí el `?v=` de `style.css` / `script.js` en `index.html`.
+## Archivos
+- `index.html` — estructura y textos (fechas, contactos, preguntas).
+- `style.css` — diseño y animaciones (colores en `:root`).
+- `script.js` — intro, logo 3D, carrusel de reels, galería con filtros y visor, tarjetas que giran,
+  cuenta regresiva y reserva por WhatsApp con vista previa del mensaje.
+- `data.js` — lista de fotos y reels de la galería (para sumar uno, copiá un renglón).
+- `media/` — fotos (`.webp`) y reels (`.mp4` H.264 con sonido) de @sj.makeup.beauty y @makeup.by.augusto;
+  `hero-loop.mp4` es el video de portada.
+- `fonts/` — Instrument Serif y Manrope (OFL).
+- `logo-four-mask.png` — "FOUR" para el logo 3D; `logo-four-makeup.png` logo completo; `og-four-makeup.jpg` vista previa de WhatsApp.
+
+## Cambios comunes
+- Números de WhatsApp: botones en `index.html` y la lista `WA` en `script.js`.
+- Fechas: `data-start` en `index.html` (tarjetas y opciones del formulario). Las fechas pasadas se marcan solas.
+- Después de editar, subí el `?v=` de `style.css`, `data.js` y `script.js` en `index.html`.
