@@ -216,7 +216,7 @@
      Los navegadores no permiten sonido sin un toque de la persona: arranca con el primer toque. */
   var music = (function () {
     var btn = $('music-btn'), txt = $('music-txt');
-    var SRC = 'media/four-theme.mp3?v=1', VOL = 0.32, LOOP_END = 38.4;
+    var SRC = 'media/four-pop.mp3?v=1', VOL = 0.3, LOOP_END = 16 * 4 * 60 / 108; // 16 compases a 108 BPM
     var ctx = null, gain = null, buffer = null, source = null, fallback = null;
     var playing = false, ducked = false, loading = false;
     var pref = 'on';
